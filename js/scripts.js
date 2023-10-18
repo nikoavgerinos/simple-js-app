@@ -1,8 +1,8 @@
-let pokemonRepository = (function() {
+let pokemonRepository = (function () {
   let pokemonList = [
-    {name: 'Bulbasaur', height: 0.7, types: ['grass', 'poison']},
-    {name: 'Gengar', height: 1.5, types: ['ghost', 'poison']},
-    {name: 'Dragonite', height: 2.2, types: ['dragon', 'flying']}
+    { name: 'Bulbasaur', height: 0.7, types: ['grass', 'poison'] },
+    { name: 'Gengar', height: 1.5, types: ['ghost', 'poison'] },
+    { name: 'Dragonite', height: 2.2, types: ['dragon', 'flying'] }
     // ... other Pokemon data
   ];
 
@@ -11,59 +11,53 @@ let pokemonRepository = (function() {
   }
 
   function add(pokemon) {
-    if (typeof pokemon === 'object') {
-      let expectedKeys = ['name', 'height', 'types'];
-      let objectKeys = Object.keys(pokemon);
-      let allKeysExist = expectedKeys.every((key) => objectKeys.includes(key));
-
-      if (allKeysExist) {
-        pokemonList.push(pokemon);
-      } else {
-        console.error("The object doesn't have the correct structure for a Pokemon entity.");
-      }
+    if (
+      typeof pokemon === 'object' &&
+      'name' in pokemon &&
+      'height' in pokemon &&
+      'types' in pokemon
+    ) {
+      pokemonList.push(pokemon);
     } else {
-      console.error("You can only add objects to the Pokemon list.");
+      console.error("pokemon is not correct format");
     }
   }
 
-  function findByName(name) {
-    return pokemonList.filter(function(pokemon) {
-      return pokemon.name.toLowerCase() === name.toLowerCase();
+  function addListItem(pokemon) {
+    let pokemonList = document.querySelector('.pokemon-list');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokemon.name;
+    button.classList.add('pokemon-button');
+    listItem.appendChild(button);
+    pokemonList.appendChild(listItem);
+    // Adding the event listener for the button
+    addEventListenerToButton(button, pokemon);
+  }
+
+  // Creating a new function to handle the event listener addition
+  function addEventListenerToButton(button, pokemon) {
+    button.addEventListener('click', function () {
+      showDetails(pokemon);
     });
+  }
+
+  // Updated showDetails function to just log the pokemon object
+  function showDetails(pokemon) {
+    console.log(pokemon);
   }
 
   return {
     getAll: getAll,
     add: add,
-    findByName: findByName
+    addListItem: addListItem
   };
 })();
 
-pokemonRepository.add({ name: 'Pikachu', height: 0.4, types: ["electric"] }); 
+// Adding a new Pokémon to demonstrate functionality
+pokemonRepository.add({ name: 'Pikachu', height: 0.4, types: ['electric'] });
 
-
-let allPokemons = pokemonRepository.getAll();
-
-
-allPokemons.forEach(function(pokemon) {
-  console.log(pokemon); 
+// Iterating over each Pokémon in the repository and creating a list item for each
+pokemonRepository.getAll().forEach(function (pokemon) {
+  pokemonRepository.addListItem(pokemon);
 });
-
-
-
-for (let i = 0; i < allPokemons.length; i++) {
- 
-  document.write('<div class="pokemon-info">');
-
-
-  document.write(allPokemons[i].name + " (height: " + allPokemons[i].height + "m)");
-
-
-  if (allPokemons[i].height > 2.0) {
-
-    document.write('<span class="big-pokemon"> - Wow! That\'s big!</span>');
-  }
-
-
-  document.write('</div><br>');
-}
