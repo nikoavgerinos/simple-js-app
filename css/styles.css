@@ -52,10 +52,105 @@ button.pokemon-button {
     text-align: center;
   }
   
-  .big-pokemon {
+.big-pokemon {
     font-weight: bold;
     color: red; /* change as needed */
   }
+
+.modal-container {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top of everything */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Modal Content/Box */
+.modal {
+    background-color: #fefefe; /* White background color */
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border-radius: 5px; /* Rounded corners */
+    width: 70%; /* Could be more or less, depending on screen size */
+    max-width: 500px; /* Responsive width */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Slight shadow for 3D feel */
+    animation-name: animatetop; /* Name of the animation */
+    animation-duration: 0.4s; /* Duration of the animation */
+  }
+  
+  /* Add Animation */
+  @keyframes animatetop {
+    from {
+      transform: translateY(-300px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+.modal-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.image-container {
+    flex-basis: 60%;
+    text-align: center;
+}
+
+.image-container img {
+    width: 100%; /* Make image fill the container */
+    max-width: 400px; /* Restrict maximum width */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .text-container {
+    flex-basis: 40%; /* takes up 40% of the modal content's width */
+  }
+  /* The Close Button */
+.modal-close {
+    color: #aaa; /* Medium grey color */
+    float: right; /* Positioned to the right */
+    font-size: 20px;
+    font-weight: bold;
+
+  }
+  
+.modal-close:hover,
+.modal-close:focus {
+    color: black; /* Darker grey color on hover */
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+.modal-header h1,
+.modal-content p {
+    margin: 0;
+    padding-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* The image styling */
+.modal-content img {
+    max-width: 100%; /* This will ensure your image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Slightly rounded corners on the image */
+    margin-top: 20px;
+  }
+
+
+
 
 /* MEDIA QUERIES */
 @media (max-width: 768px) {
@@ -65,7 +160,20 @@ button.pokemon-button {
         width: 280px;
         height: 70px;
     }
+    .modal-content {
+        flex-direction: column;
+    }
+    .image-container,
+    .text-container {
+      flex-basis: auto; /* Reset width for stacked layout */
+    }
 }
+
+@media screen and (max-width: 700px) {
+    .modal {
+      width: 95%; /* Take up nearly the full screen width */
+    }
+  }
 
 @media (max-width: 480px) {
     button.pokemon-button {
