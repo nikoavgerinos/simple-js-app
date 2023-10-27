@@ -1,185 +1,293 @@
+@font-face {
+    font-family: "Pokemon Classic";
+    src: url("../files/fonts/Pokemon Classic.ttf") format("truetype");
+}
+
+html,
 body {
-    font-family: "Lato", sans-serif;
-    background-color: #f2f2f2;
+    height: 100%;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-h1 {
-    color: #333;
-    margin-top: 20px;
-    text-align: center;
+body {
+    font-family: "Pokemon Classic", sans-serif;
+    background-image: url("../files/img/pokemon-wallpaper.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
-ul.pokemon-list {
-    list-style-type: none;
+.navbar {
+    height: 150px;
+    background-color: transparent !important;
     padding: 0;
-    display: flex;
-    flex-direction: column; /* Stack the buttons vertically */
-    align-items: center; /* Center items horizontally */
-    width: 100%;
+    position: relative;
 }
 
-li {
-    margin: 15px 0;
-}
-
-button.pokemon-button {
-    background-color: #4caf50;
-    border: none;
-    color: white;
-    padding: 20px 40px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 4px;
-    width: 320px; /* button width */
-    height: 80px; /* button height */
-}
-
-.pokemon-info {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #fff; /* change as needed */
-    border: 1px solid #ddd; /* change as needed */
-    border-radius: 4px; /* optional */
-    width: 90%; /* adjust as needed */
-    text-align: center;
-  }
-  
-.big-pokemon {
-    font-weight: bold;
-    color: red; /* change as needed */
-  }
-
-.modal-container {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top of everything */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+.navbar-brand {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  /* Modal Content/Box */
-.modal {
-    background-color: #fefefe; /* White background color */
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
-    border-radius: 5px; /* Rounded corners */
-    width: 70%; /* Could be more or less, depending on screen size */
-    max-width: 500px; /* Responsive width */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Slight shadow for 3D feel */
-    animation-name: animatetop; /* Name of the animation */
-    animation-duration: 0.4s; /* Duration of the animation */
-  }
-  
-  /* Add Animation */
-  @keyframes animatetop {
+    height: 100%;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-brand img {
+    /* max-width: 200px; */
+    height: auto;
+    margin-top: 100px;
+}
+
+.btn-secondary {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: black;
+    margin-left: 10px;
+    
+}
+
+.btn-secondary:hover {
+    color: black !important;
+}
+.mb-4 {
+    margin-top: 100px;
+}
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 60px);
+    animation: slideInDown 0.5s ease;
+}
+
+@keyframes slideInDown {
     from {
-      transform: translateY(-300px);
-      opacity: 0;
+        transform: translateY(-100%);
     }
     to {
-      transform: translateY(0);
-      opacity: 1;
+        transform: translateY(0);
     }
-  }
+}
 
 .modal-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    max-width: 100%;
+    overflow: auto;
 }
 
-.image-container {
-    flex-basis: 60%;
+.modal-header {
+    background-color: #e13009;
+    color: white;
+    border: 2px solid #c0392b;
     text-align: center;
 }
 
-.image-container img {
-    width: 100%; /* Make image fill the container */
-    max-width: 400px; /* Restrict maximum width */
-    height: auto; /* Maintain aspect ratio */
-  }
-  
-  .text-container {
-    flex-basis: 40%; /* takes up 40% of the modal content's width */
-  }
-  /* The Close Button */
-.modal-close {
-    color: #aaa; /* Medium grey color */
-    float: right; /* Positioned to the right */
-    font-size: 20px;
-    font-weight: bold;
+.modal-title {
+    text-align: center;
+    margin: 0 auto;
+    display: table;
+}
 
-  }
-  
-.modal-close:hover,
-.modal-close:focus {
-    color: black; /* Darker grey color on hover */
-    text-decoration: none;
+.modal-body {
+    background-color: #f2f2f2;
+    text-align: center;
+}
+
+.list-group {
+    background-color: rgba(255, 255, 255, 0);
+    padding: 0;
+}
+
+.list-group-item {
+    background-color: transparent;
+    border: none;
+    margin: 10px 0;
+    text-align: center;
+    padding: 0;
+}
+
+.list-group-item button {
+    background-color: #e13009;
+    color: white;
+    font-size: 1em;
+    border: none;
     cursor: pointer;
-  }
-  
-.modal-header h1,
-.modal-content p {
-    margin: 0;
-    padding-bottom: 10px;
-    text-align: center;
-  }
-  
-  /* The image styling */
-.modal-content img {
-    max-width: 100%; /* This will ensure your image is responsive */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 5px; /* Slightly rounded corners on the image */
-    margin-top: 20px;
-  }
+    width: 70%;
+    height: 70px;
+    margin: 5px;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    transition:
+        background-color 0.3s,
+        transform 0.3s,
+        box-shadow 0.3s;
+    animation: buttonSlideIn 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
 
-
-
-
-/* MEDIA QUERIES */
-@media (max-width: 768px) {
-    button.pokemon-button {
-        padding: 18px 36px;
-        font-size: 16px;
-        width: 280px;
-        height: 70px;
+@keyframes buttonSlideIn {
+    0% {
+        transform: translateY(100%);
     }
-    .modal-content {
-        flex-direction: column;
-    }
-    .image-container,
-    .text-container {
-      flex-basis: auto; /* Reset width for stacked layout */
+    100% {
+        transform: translateY(0);
     }
 }
 
-@media screen and (max-width: 700px) {
-    .modal {
-      width: 95%; /* Take up nearly the full screen width */
-    }
-  }
+.list-group-item button:hover {
+    background-color: #c0392b;
+    transform: scale(1.1);
+}
 
-@media (max-width: 480px) {
-    button.pokemon-button {
-        padding: 15px 30px;
-        font-size: 14px;
-        width: 240px;
-        height: 60px;
+.list-group-item button:active {
+    background-color: #d6b11e !important;
+}
+.list-group-item button:focus {
+    background-color: #d6b11e !important;
+}
+
+.modal-footer .btn-close {
+    background-color: #e13009;
+    color: white;
+    border: none;
+}
+
+.modal-footer .btn-close:hover {
+    background-color: #c0392b;
+}
+
+#loader-element {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pokemon {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    background: linear-gradient(to bottom, rgb(254, 0, 1) 50%, white 50%);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.pokemon::before,
+.pokemon::after {
+    content: "";
+    position: absolute;
+    background: black;
+}
+
+@keyframes spin {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.pages {
+    display: flex;
+    justify-content: center;
+    list-style-type: none; /* Remove default list bullet points */
+    padding: 0;
+    margin-top: 40px; /* Add margin at the top of the pagination */
+    flex-wrap: wrap; /* Allow pagination items to wrap */
+    gap: 10px; /* Provide consistent gap between items */
+}
+
+.pages li {
+    cursor: pointer; /* Add pointer cursor on hover */
+}
+
+.pages li.active-page {
+    position: relative; /* Relative positioning to contain the pseudo-element */
+    color: white; /* Change the text color for better visibility */
+}
+.pages li.active-page::after {
+    content: ""; /* Necessary for a pseudo-element */
+    position: absolute; /* Absolute positioning relative to its parent */
+    left: 0; /* Align with the left side of the parent */
+    right: 0; /* Align with the right side of the parent */
+    bottom: -10px; /* Position below the item */
+    height: 2px; /* Line height */
+    background-color: #e13009; /* Line color */
+}
+
+.pages li.current-page {
+    border-bottom: 2px solid #e13009;
+}
+
+.pages li.dots,
+.pages .previous,
+.pages .next {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0 5px;
+}
+
+#previousPage,
+#nextPage {
+    outline: none;
+}
+
+.text-center {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    padding-bottom: 20px;
+    opacity: 0.5;
+}
+
+#nextPage:focus,
+#nextPage:active,
+#previousPage:focus,
+#previousPage:active {
+    outline: none !important;
+    /* Add any other styles you want to apply when the button is in focus */
+}
+@media (min-width: 2300px) {
+    body {
+        background-size: 100% 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar {
+        height: auto;
+        margin-bottom: 50px !important;
+    }
+
+    .navbar-brand img {
+        max-width: 250px;
+        padding-top: 20px;
+
+    }
+    .pages {
+        gap: 5px; /* Smaller gap for smaller screens */
+    }
+
+    .pages li {
+        font-size: 14px; /* Smaller font size for pagination items on smaller screens */
+    }
+
+    .pages li.active-page::after {
+        bottom: -5px; /* Adjust position for smaller screen */
+    }
+    .mb-4 {
+        margin-top: 150px;
     }
 }
