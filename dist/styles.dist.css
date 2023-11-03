@@ -1,0 +1,270 @@
+.navbar-brand,
+.pages {
+  justify-content: center;
+}
+.btn-secondary,
+.navbar {
+  background-color: transparent !important;
+}
+.list-group-item,
+.modal-body,
+.modal-header,
+.modal-title,
+.text-center {
+  text-align: center;
+}
+@font-face {
+  font-family: "Pokemon Classic";
+  src: url("../files/fonts/Pokemon Classic.ttf") format("truetype");
+}
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Pokemon Classic", sans-serif;
+  background-image: url("../files/img/pokemon-wallpaper.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+.navbar {
+  height: 150px;
+  padding: 0;
+  position: relative;
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.navbar-brand img {
+  height: auto;
+  margin-top: 100px;
+}
+.btn-secondary {
+  border-color: transparent !important;
+  color: #000;
+  margin-left: 10px;
+}
+.list-group-item button,
+.modal-footer .btn-close,
+.modal-header {
+  background-color: #e13009;
+  color: #fff;
+}
+.btn-secondary:hover {
+  color: #000 !important;
+}
+.mb-4 {
+  margin-top: 100px;
+}
+.modal-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 60px);
+  animation: 0.5s slideInDown;
+}
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.modal-content {
+  border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  max-width: 100%;
+  overflow: auto;
+}
+.modal-header {
+  border: 2px solid #c0392b;
+}
+.modal-title {
+  margin: 0 auto;
+  display: block;
+}
+.modal-body {
+  background-color: #f2f2f2;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.list-group {
+  background-color: rgba(255, 255, 255, 0);
+  padding: 0;
+}
+.list-group-item {
+  background-color: transparent;
+  border: none;
+  margin: 10px 0;
+  padding: 0;
+}
+.list-group-item button {
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  width: 70%;
+  height: 70px;
+  margin: 5px;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  animation: 0.5s buttonSlideIn;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+@keyframes buttonSlideIn {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.list-group-item button:hover {
+  background-color: #c0392b;
+  transform: scale(1.1);
+}
+.list-group-item button:active,
+.list-group-item button:focus {
+  background-color: #d6b11e !important;
+}
+h1 {
+  font-size: 1.5em;
+}
+.modal-footer .btn-close {
+  border: none;
+}
+.modal-footer .btn-close:hover {
+  background-color: #c0392b;
+}
+#loader-element {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.pokemon {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  background: linear-gradient(to bottom, #fe0001 50%, #fff 50%);
+  border-radius: 50%;
+  animation: 1s linear infinite spin;
+}
+.pokemon::after,
+.pokemon::before {
+  content: "";
+  position: absolute;
+  background: #000;
+}
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+.pages {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.pages li {
+  cursor: pointer;
+}
+.pages li.active-page {
+  position: relative;
+  color: #fff;
+}
+.pages li.active-page::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10px;
+  height: 2px;
+  background-color: #e13009;
+}
+.pages li.current-page {
+  border-bottom: 2px solid #e13009;
+}
+.pages .next,
+.pages .previous,
+.pages li.dots {
+  font-weight: 700;
+  font-size: 1.2em;
+  margin: 0 5px;
+}
+#nextPage,
+#previousPage {
+  outline: 0;
+}
+.text-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 10px;
+  padding-bottom: 20px;
+  opacity: 0.5;
+}
+#nextPage:active,
+#nextPage:focus,
+#previousPage:active,
+#previousPage:focus {
+  outline: 0 !important;
+}
+@media (min-width: 2300px) {
+  body {
+    background-size: 100% 100%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .navbar {
+    height: auto;
+    margin-bottom: 50px !important;
+  }
+  .navbar-brand img {
+    max-width: 250px;
+    padding-top: 20px;
+  }
+  .pages {
+    gap: 5px;
+  }
+  .pages li {
+    font-size: 14px;
+  }
+  .pages li.active-page::after {
+    bottom: -5px;
+  }
+  .mb-4 {
+    margin-top: 150px;
+  }
+  .modal-title {
+    font-size: 18px !important;
+    max-width: 70% !important;
+    margin: 0 auto !important;
+  }
+  .modal-footer .btn-close {
+    padding: 10px 20px !important;
+    font-size: 16px !important;
+  }
+  h1 {
+    font-size: 1.5em;
+  }
+}

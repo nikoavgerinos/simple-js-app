@@ -92,14 +92,13 @@ body {
 .modal-title {
     text-align: center;
     margin: 0 auto;
-    display: table;
+    display: block;
 }
 
 .modal-body {
     background-color: #f2f2f2;
     text-align: center;
-    font-family: Verdana, Geneva, Tahoma, sans-serif
-
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .list-group {
@@ -154,6 +153,10 @@ body {
 }
 .list-group-item button:focus {
     background-color: #d6b11e !important;
+}
+
+h1 {
+    font-size: 1.5em;
 }
 
 .modal-footer .btn-close {
@@ -289,5 +292,21 @@ body {
     }
     .mb-4 {
         margin-top: 150px;
+    }
+
+    .modal-title {
+        font-size: 18px !important; /* You can adjust the font size to your preference */
+        max-width: 70% !important; /* Adjust the maximum width to limit title extension */
+        margin: 0 auto !important; /* Center the title horizontally */
+    }
+
+    /* Adjust close button styles for small screens */
+    .modal-footer .btn-close {
+        padding: 10px 20px !important; /* Adjust padding for the button */
+        font-size: 16px !important; /* Adjust the font size */
+    }
+
+    h1 {
+        font-size: 1.5em;
     }
 }
