@@ -17,12 +17,12 @@ let pokemonRepository = (function () {
   function addListItem(pokemon) {
     let pokemonList = $('.list-group');
     let listPokemon = $('<li class="list-group-item"></li>');
-  
+
     let button = $('<button class="btn btn-primary" data-toggle="modal" data-target="#pokemonModal"></button>');
     button.text(pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)); // Remove the numbering here
     listPokemon.append(button);
     pokemonList.append(listPokemon);
-  
+
     button.on('click', function () {
       showDetails(pokemon);
     });
@@ -38,12 +38,12 @@ let pokemonRepository = (function () {
       .then(json => {
         json.results.forEach(function (item, index) {
           let pokemon = {
-              name: item.name,
-              detailsUrl: item.url,
+            name: item.name,
+            detailsUrl: item.url,
           };
           add(pokemon);
           addListItem(pokemon, index); // Pass the index to addListItem
-      });
+        });
         document.getElementById('loader-element').style.display = 'none';
       })
       .catch(e => {

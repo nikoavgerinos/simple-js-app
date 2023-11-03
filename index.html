@@ -1,90 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokédex</title>
     <!-- Favicon -->
-    <link rel="icon" href="/files/img/pokemon-favicon.png" type="image/x-icon">
-    
+    <link
+      rel="icon"
+      href="/files/img/pokemon-favicon.png"
+      type="image/x-icon"
+    />
 
     <!-- Bootstrap CSS -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
     <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css" />
 
     <!-- Fonts -->
-    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
-    <link rel="stylesheet" href="https://www.fontsaddict.com/fontface/pokemon-pixel-font-regular.css">
-</head>
-<body class="pokemon-theme">
+    <link
+      href="https://fonts.cdnfonts.com/css/pokemon-solid"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://www.fontsaddict.com/fontface/pokemon-pixel-font-regular.css"
+    />
+  </head>
+  <body class="pokemon-theme">
     <!-- Pokemon loader -->
     <div id="loader-element" class="pokemon"></div>
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <a class="navbar-brand" href="index.html">
-          <img src="../files/img/Pokédex_logo.png" alt="Pokédex Logo" class="img-fluid"> <!-- Added img-fluid for responsive image -->
+        <img
+          src="../files/img/Pokédex_logo.png"
+          alt="Pokédex Logo"
+          class="img-fluid"
+        />
+        <!-- Added img-fluid for responsive image -->
       </a>
-    
-            <!-- Uncomment the below <li> and add more if needed -->
-            <!--
+
+      <!-- Uncomment the below <li> and add more if needed -->
+      <!--
             <li class="nav-item">
                 <a class="nav-link" href="#">Pokémon List</a>
             </li>
             -->
-   
     </nav>
 
     <!-- Pokemon List -->
     <div class="container mt-5">
-        <!-- Pagination buttons -->
-        <div class="d-flex justify-content-center mb-4">
-          <button id="previousPage" class="btn btn-secondary mr-2">Previous</button> <!-- Adjusted button class to Bootstrap style -->
-          <button id="nextPage" class="btn btn-secondary">Next</button> <!-- Adjusted button class to Bootstrap style -->
+      <!-- Pagination buttons -->
+      <div class="d-flex justify-content-center mb-4">
+        <button id="previousPage" class="btn btn-secondary mr-2">
+          Previous
+        </button>
+        <!-- Adjusted button class to Bootstrap style -->
+        <button id="nextPage" class="btn btn-secondary">Next</button>
+        <!-- Adjusted button class to Bootstrap style -->
       </div>
 
-        <!-- Pokemon List -->
-        <ul id="pokemon-list" class="list-group">
-            <!-- Make sure your individual items use the list-group-item class for proper styling -->
-        </ul>
+      <!-- Pokemon List -->
+      <ul id="pokemon-list" class="list-group">
+        <!-- Make sure your individual items use the list-group-item class for proper styling -->
+      </ul>
 
-        <!-- Page selection -->
-        <div class="text-center mt-3">
-          © 2023 Pokémon. © 1995 - 2023 Nintendo/Creatures Inc./GAME FREAK inc
-
-        </div>
+      <!-- Page selection -->
+      <div class="text-center mt-3">
+        © 2023 Pokémon. © 1995 - 2023 Nintendo/Creatures Inc./GAME FREAK inc
+      </div>
     </div>
 
     <!-- Pokemon Modal -->
-    <div class="modal fade" id="pokemonModal" tabindex="-1" aria-labelledby="pokemonModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="pokemonModalLabel">Pokémon Name</h5> <!-- Changed the tag from h1 to h5 for better visual consistency -->
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Dynamic Pokémon details -->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
+    <div
+      class="modal fade"
+      id="pokemonModal"
+      tabindex="-1"
+      aria-labelledby="pokemonModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="pokemonModalLabel">Pokémon Name</h5>
+            <!-- Changed the tag from h1 to h5 for better visual consistency -->
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- Dynamic Pokémon details -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
         </div>
+      </div>
     </div>
 
     <!-- Bootstrap JS, Popper.js, and jQuery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- Your custom JavaScript files -->
     <script src="js/scripts.js"></script>
     <!-- <script src="js/tota11y.js"></script> -->
-</body>
+  </body>
 </html>
