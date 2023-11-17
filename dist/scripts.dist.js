@@ -22,8 +22,7 @@ let pokemonRepository = (function () {
       });
   }
   function i(e) {
-    let t = e.detailsUrl;
-    return fetch(t)
+    return fetch(e.detailsUrl)
       .then(function (e) {
         return e.json();
       })
@@ -44,26 +43,29 @@ let pokemonRepository = (function () {
   }
   function l(e) {
     i(e).then(function () {
-      !(function e(t) {
-        let n = $(".modal-body"),
-          o = $(".modal-title");
-        o.empty(), n.empty();
-        let i = $(
-            "<h1>" + t.name.charAt(0).toUpperCase() + t.name.slice(1) + "</h1>"
-          ),
-          l = $('<img class="modal-img" style="width:50%">');
-        l.attr("src", t.imageUrl);
-        let a = $("<p>Height : " + t.height + "</p>"),
-          p = $("<p>Weight : " + t.weight + "</p>"),
-          r = $("<p>Abilities : " + t.abilities.join(", ") + "</p>"),
-          s = $("<p>Moves : " + t.moves.join(", ") + "</p>");
+      var t;
+      let n, o, i, l, a, p, r, s;
+      (t = e),
+        (n = $(".modal-body")),
+        (o = $(".modal-title")).empty(),
+        n.empty(),
+        (i = $(
+          "<h1>" + t.name.charAt(0).toUpperCase() + t.name.slice(1) + "</h1>"
+        )),
+        (l = $('<img class="modal-img" style="width:50%">')).attr(
+          "src",
+          t.imageUrl
+        ),
+        (a = $("<p>Height : " + t.height + "</p>")),
+        (p = $("<p>Weight : " + t.weight + "</p>")),
+        (r = $("<p>Abilities : " + t.abilities.join(", ") + "</p>")),
+        (s = $("<p>Moves : " + t.moves.join(", ") + "</p>")),
         o.append(i),
-          n.append(l),
-          n.append(a),
-          n.append(p),
-          n.append(r),
-          n.append(s);
-      })(e);
+        n.append(l),
+        n.append(a),
+        n.append(p),
+        n.append(r),
+        n.append(s);
     });
   }
   return {
@@ -119,8 +121,7 @@ pokemonRepository.loadList().then(function () {
     i.val(e),
       i.find("li:first-child").addClass("current-page"),
       $("#pageSelect").on("click", "li", function () {
-        let n = parseInt($(this).text());
-        (e = n),
+        (e = parseInt($(this).text())),
           t(),
           $("#pageSelect li").removeClass("current-page"),
           $(this).addClass("current-page");
@@ -128,8 +129,7 @@ pokemonRepository.loadList().then(function () {
   })(),
     $("#nextPage").on("click", function (n) {
       n.preventDefault();
-      let o = Math.ceil(pokemonRepository.getAll().length / 10);
-      e < o &&
+      e < Math.ceil(pokemonRepository.getAll().length / 10) &&
         (e++,
         t(),
         $("#pageSelect").val(e),
