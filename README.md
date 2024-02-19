@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="files/img/simplejsapp.png" width="800" alt="Image">
+</p>
+
 # Pokédex Web Application
 
 Welcome to the Pokédex web application project. This README provides an overview of the project, instructions for setup, and key information about the code structure and dependencies.
